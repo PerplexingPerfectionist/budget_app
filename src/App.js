@@ -14,7 +14,7 @@ function App() {
   const [showAddExpenseModal, setShowAddExpenseModal] = useState(false)
   const [viewExpensesModalBudgetId, setViewExpensesModalBudgetId] = useState()
   const [addExpenseModalBudgetId, setAddExpenseModalBudgetId] = useState()
-  const { budgets, getBudgetExpenses } = useBudgets()
+  const { budgets, expenses, getBudgetExpenses } = useBudgets()
 
   function openAddExpenseModal(budgetId) {
     setShowAddExpenseModal(true)
@@ -29,6 +29,13 @@ function App() {
       <Button onClick={() => setShowAddBudgetModal(true)} variant='primary'>Add Budget</Button>
       <Button onClick={openAddExpenseModal} variant='outline-primary'>Add Expense</Button>
     </Stack>
+
+    <div className='col-9 col-md-8 col-lg-6 mx-auto mt-5' style={budgets.length === 0 && expenses.length === 0 ? {display: 'block'} : {display: 'none'}}>
+      <p className='fs-4'>This app allows you to track budgets and expenses. Start by adding budget categories. Then add you expenses to each category.</p>
+      <p className='fs-4'>To delete a budget or expense click on the "view expenses" button.</p>
+      <p className='mt-5 fs-4 fw-bold'>Enter your budgets and expenses to get started.</p>
+    </div>
+
     <div style={{
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
