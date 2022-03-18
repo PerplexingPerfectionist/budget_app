@@ -57,6 +57,11 @@ export const BudgetsProvider = ({ children }) => {
             return prevBudgets.filter(budget => budget.id !== id)
         })
     }
+
+    function resetAll() {
+        setBudgets([])
+        setExpenses([])
+    }
     
     return (
         <BudgetsContext.Provider value={{
@@ -66,7 +71,8 @@ export const BudgetsProvider = ({ children }) => {
             addExpense,
             addBudget,
             deleteExpense,
-            deleteBudget
+            deleteBudget,
+            resetAll
         }}>
             {children}
         </BudgetsContext.Provider>

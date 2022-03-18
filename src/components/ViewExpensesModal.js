@@ -31,7 +31,7 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
                         <Stack direction='horizontal' gap='2' key={expense.id}>
                             <div className='me-auto fs-4'>{expense.description}</div>
                             <div className='fs-5'>{currencyFormat.format(expense.amount)}</div>
-                            <Button size='sm' variant='outline-danger' onClick={() => deleteExpense(expense)}>&times;</Button>
+                            <Button size='sm' variant='outline-danger' onClick={() => deleteExpense(expense)}><strong>&#88;</strong></Button>
                         </Stack>
                     ))}
                 </Stack>
